@@ -12,11 +12,18 @@ import RecipesBase: plot, plot!, animate
 using Base.Meta
 @reexport using PlotUtils
 @reexport using PlotThemes
+import Dates
+import Dates.Date
 import Showoff
 import StatsBase
 import JSON
 
-using Requires
+# HACK: stub out until Requires works in 0.7
+# using Requires
+macro require(mod,expr)
+end
+macro init(expr)
+end
 
 export
     grid,
