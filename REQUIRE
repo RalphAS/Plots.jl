@@ -12,6 +12,6 @@ Showoff
 StatsBase 0.14.0
 JSON
 NaNMath
-#Requires
+Requires
 Contour
 GR 0.31.0
