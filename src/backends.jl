@@ -13,6 +13,19 @@ backends() = _backends
 backend_name() = CURRENT_BACKEND.sym
 _backend_instance(sym::Symbol) = haskey(_backendType, sym) ? _backendType[sym]() : error("Unsupported backend $sym")
 
+# kludge while waiting for Pkg alternatives
+function _findmod(f::Symbol)
+    for (u,v) in Base.loaded_modules
+        (Symbol(v) == f) && return u
+    end
+    nothing
+end
+function myimport(modname)
+    u = _findmod(modname)
+    @eval $modname = Base.loaded_modules[$u]
+end
+# end kludge
+
 macro init_backend(s)
     str = lowercase(string(s))
     sym = Symbol(str)
