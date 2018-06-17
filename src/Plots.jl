@@ -13,7 +13,11 @@ using Base.Meta
 @reexport using PlotUtils
 @reexport using PlotThemes
 import Dates
-import Dates.Date
+import Dates: Date, DateTime
+import Printf: @printf, @sprintf
+import REPL: REPLDisplay
+import Base64: base64encode
+import Pkg
 import Showoff
 import StatsBase
 import JSON
@@ -271,6 +275,8 @@ xgrid!(args...; kw...)                                    = plot!(; xgrid = args
 ygrid!(args...; kw...)                                    = plot!(; ygrid = args, kw...)
 
 let PlotOrSubplot = Union{Plot, Subplot}
+    global title!, xlabel!, ylabel!, xlims!, ylims!, zlims!, xticks!, yticks!
+    global xgrid!, ygrid!, annotate!, xflip!, yflip!, xaxis!, yaxis!
     title!(plt::PlotOrSubplot, s::AbstractString; kw...)                  = plot!(plt; title = s, kw...)
     xlabel!(plt::PlotOrSubplot, s::AbstractString; kw...)                 = plot!(plt; xlabel = s, kw...)
     ylabel!(plt::PlotOrSubplot, s::AbstractString; kw...)                 = plot!(plt; ylabel = s, kw...)
