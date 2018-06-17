@@ -22,12 +22,7 @@ import Showoff
 import StatsBase
 import JSON
 
-# HACK: stub out until Requires works in 0.7
 using Requires
-#macro require(mod,expr)
-#end
-#macro init(expr)
-#end
 
 export
     grid,
