@@ -73,22 +73,15 @@ function add_backend_string(::PyPlotBackend)
 end
 
 function _initialize_backend(::PyPlotBackend)
-    # kludge while waiting for Pkg alternatives
-    @eval Base.__toplevel__  import PyPlot, PyCall, LaTeXStrings
-    # end kludge
     @eval begin
         # problem: https://github.com/tbreloff/Plots.jl/issues/308
         # solution: hack from @stevengj: https://github.com/stevengj/PyPlot.jl/pull/223#issuecomment-229747768
         otherdisplays = splice!(Base.Multimedia.displays, 2:length(Base.Multimedia.displays))
-        # kludge while waiting for Pkg alternatives
+
         myimport(:PyPlot)
         myimport(:PyCall)
         myimport(:LaTeXStrings)
         latexstring = LaTeXStrings.latexstring
-        # end kludge
-        # hide while kluge is in effect:
-#        import PyPlot, PyCall
-#        import LaTeXStrings: latexstring
 
         append!(Base.Multimedia.displays, otherdisplays)
 
