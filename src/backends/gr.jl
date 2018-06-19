@@ -1354,10 +1354,10 @@ const _gr_mimeformats = Dict(
     "image/svg+xml"           => "svg",
 )
 
-const _gr_wstype_default = @static if Sys.islinux()
+const _gr_wstype_default = @static if islinux()
     "x11"
     # "cairox11"
-elseif Sys.isapple()
+elseif isapple()
     "quartz"
 else
     "use_default"

@@ -183,7 +183,7 @@ function png(plt::AbstractPlot{UnicodePlotsBackend}, fn::AbstractString)
     gui(plt)
 
     # @osx_only begin
-    @static if Sys.isapple()
+    @static if isapple()
         # BEGIN HACK
 
         # wait while the plot gets drawn

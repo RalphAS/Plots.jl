@@ -177,7 +177,7 @@ const _positionAliases = Dict{Symbol,Symbol}(
 const _allScales = [:identity, :ln, :log2, :log10, :asinh, :sqrt]
 const _logScales = [:ln, :log2, :log10]
 const _logScaleBases = Dict(
-    :ln => Base.MathConstants.e,
+    :ln => euler_e,
     :log2 => 2.0,
     :log10 => 10.0
 )

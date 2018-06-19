@@ -355,7 +355,7 @@ sortedkeys(d::Dict) = sort(collect(keys(d)))
 const _scale_base = Dict{Symbol, Real}(
     :log10 => 10,
     :log2 => 2,
-    :ln => Base.MathConstants.e,
+    :ln => euler_e
 )
 
 function _heatmap_edges(v::AVec)

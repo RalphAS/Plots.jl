@@ -12,12 +12,25 @@ import RecipesBase: plot, plot!, animate
 using Base.Meta
 @reexport using PlotUtils
 @reexport using PlotThemes
-import Dates
-import Dates: Date, DateTime
-import Printf: @printf, @sprintf
-import REPL: REPLDisplay
-import Base64: base64encode
-import Pkg
+
+if VERSION >= v"0.7-"
+    import Dates
+    using Dates: Date, DateTime
+    using Printf: @printf, @sprintf
+    using REPL: REPLDisplay
+    using Base64: base64encode
+    using Base.Sys: isapple, islinux, iswindows, isbsd
+    import Pkg
+    const euler_e = Base.MathConstants.e
+else
+    using Compat
+    using Compat.Sys: isapple, islinux, iswindows, isbsd
+    import Compat: maximum
+    maximum(arg::Tuple) = Base.maximum(arg)
+    using Base.REPL: REPLDisplay
+    const euler_e = Base.e
+end
+
 import Showoff
 import StatsBase
 import JSON

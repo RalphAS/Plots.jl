@@ -23,13 +23,13 @@ function standalone_html(plt::AbstractPlot; title::AbstractString = get(plt.attr
 end
 
 function open_browser_window(filename::AbstractString)
-    @static if Sys.isapple()
+    @static if isapple()
         return run(`open $(filename)`)
     end
-    @static if Sys.islinux() || Sys.isbsd()    # is_bsd() addition is as yet untested, but based on suggestion in https://github.com/JuliaPlots/Plots.jl/issues/681
+    @static if islinux() || isbsd()    # is_bsd() addition is as yet untested, but based on suggestion in https://github.com/JuliaPlots/Plots.jl/issues/681
         return run(`xdg-open $(filename)`)
     end
-    @static if Sys.iswindows()
+    @static if iswindows()
         return run(`$(ENV["COMSPEC"]) /c start "" "$(filename)"`)
     end
     warn("Unknown OS... cannot open browser window.")
