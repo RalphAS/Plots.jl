@@ -8,7 +8,9 @@ mutable struct PlotExample
 end
 
 # the _examples we'll run for each
-const _examples = PlotExample[
+# FIXME: suppress explicit typing of array until parser is fixed
+#const _examples = PlotExample[
+const _examples = [
 
 PlotExample("Lines",
     "A simple line plot of the columns.",

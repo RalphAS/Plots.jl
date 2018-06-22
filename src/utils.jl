@@ -305,7 +305,7 @@ function _expand_limits(lims, x)
     e1, e2 = ignorenan_extrema(x)
     lims[1] = NaNMath.min(lims[1], e1)
     lims[2] = NaNMath.max(lims[2], e2)
-  # catch err
+  catch err
   #   warn(err)
   end
   nothing

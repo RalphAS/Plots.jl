@@ -254,7 +254,7 @@ end
 # IJulia
 # ---------------------------------------------------------
 
-@require IJulia begin
+@require IJulia="7073ff75-c697-5162-941a-fcdaad2a7d2a" begin
     if IJulia.inited
 
         """
@@ -310,7 +310,7 @@ end
 # ---------------------------------------------------------
 # Atom PlotPane
 # ---------------------------------------------------------
-@require Juno begin
+@require Juno="e5e0dc1b-0480-54bc-9374-aad01c23163d" begin
     import Hiccup, Media
 
     if Juno.isactive()

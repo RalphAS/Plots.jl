@@ -656,6 +656,7 @@ function handleColors!(d::KW, arg, csym::Symbol)
             d[csym] = c
         end
         return true
+    catch
     end
     false
 end
@@ -1030,7 +1031,7 @@ function extractGroupArgs(vs::Tuple, args...)
 end
 
 # allow passing NamedTuples for a named legend entry
-@require NamedTuples begin
+@require NamedTuples="73a701b4-84e1-5df0-88ff-1968ee2ee8dc" begin
     legendEntryFromTuple(ns::NamedTuples.NamedTuple) =
         join(["$k = $v" for (k, v) in zip(keys(ns), values(ns))], ", ")
 
