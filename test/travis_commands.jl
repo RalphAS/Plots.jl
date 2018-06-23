@@ -7,8 +7,10 @@ Pkg.build("ImageMagick")
 # Pkg.clone("https://github.com/JuliaStats/KernelDensity.jl.git")
 
 Pkg.add("StatPlots")
-Pkg.develop("PlotUtils#julia0.7")
-Pkg.develop("RecipesBase#julia0.7")
+
+Pkg.develop("PlotUtils")
+Pkg.develop("RecipesBase")
+# TODO: checkout julia0.7 branches of the above
 
 Pkg.develop("https://github.com/JuliaPlots/PlotReferenceImages.jl.git")
 
