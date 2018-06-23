@@ -29,7 +29,7 @@ end
 
 function _initialize_backend(::PlotlyJSBackend; kw...)
     @eval begin
-        import PlotlyJS
+        myimport(:PlotlyJS)
         export PlotlyJS
     end
 

@@ -57,7 +57,7 @@ end
 
 function _initialize_backend(::PGFPlotsBackend; kw...)
     @eval begin
-        import PGFPlots
+        myimport(:PGFPlots)
         export PGFPlots
     end
 end
